@@ -1,0 +1,7 @@
+Debug
+*/Debug
+.vs
+*/__vm
+*/*.vcxproj
+bin
+obj

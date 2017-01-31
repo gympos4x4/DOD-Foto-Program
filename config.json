@@ -1,0 +1,16 @@
+﻿{
+  "CsvDbPath": "students.csv",
+
+  "SmtpServer": "mail.gympos.sk",
+  "SmtpPort": 25,
+  "SmtpSsl": false, 
+
+  "MailAccount": "columba@gympos.sk",
+  "MailDisplayName":  "Columba Racing - Pošotvá 9",
+  "MailPasswd": "TU-POJDE-HESLO",
+
+  "MailHtmlContentFile": "./path/to/mailTemplate.html",
+  "MailPlainContentFile": "./path/to/mailPlaintext.txt",
+  "MailSubject": "DOD na Poštovej",
+  "MailPhotoName":  "foto.jpg" 
+}
