@@ -1,4 +1,4 @@
-﻿//Kto by neuhadol, konfiguracny subor programu
+//Kto by neuhadol, konfiguracny subor programu
 
 {
   //nazov suboru kde sa ukladaju vsetky pokusy o poslanie emailu - nasa 'databaza' ludi
@@ -16,7 +16,7 @@
   //    "SmtpPort": 587,
   //    "SmtpSsl": true,
 
-  "SmtpServer": "mail.gympos.sk",
+  "SmtpServer": "server.gympos.sk",
   "SmtpPort"  : 25,
   "SmtpSsl"   :	false, 
 
@@ -24,7 +24,7 @@
 
   "MailAccount"	   : 	"columba@gympos.sk",
   "MailDisplayName":  	"Columba Racing - Pošotvá 9",
-  "MailPasswd"	   : 	"TU-POJDE-HESLO",
+  "MailPasswd"	   : 	"4X4/pse",
 
   //Podrobnosti emailu - cely mail ma nastavene kodovanie UFT-8
 
