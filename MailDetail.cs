@@ -24,10 +24,9 @@ namespace PhotoMail
 
 		private void btnSendMail_Click(object sender, EventArgs e)
 		{
-			var s = new Student(tbEMail.Text, tbName.Text, tbSchool.Text);
-
+			var s = new Student(tbEMail.Text, tbName.Text, tbSchool.Text, "");
 #if !DEBUG
-			if(s.EMail == "" || s.Skola == "" || s.Meno == "")
+			if (s.EMail == "" || s.Skola == "" || s.Meno == "")
 			{
 				MessageBox.Show(@"Prosím, vyplň všetky políčka.", @"Y U DO THIS?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 				return;
@@ -40,8 +39,9 @@ namespace PhotoMail
 			}
 #endif
 
+			string photo = MailDaemon.SendEMail(s, _settings.GetImage());
+			s.Photo = photo;
 			DatabaseController.LogStudent(s);
-			MailDaemon.SendEMail(s.EMail, _settings.GetImage());
 		}
 	}
 }

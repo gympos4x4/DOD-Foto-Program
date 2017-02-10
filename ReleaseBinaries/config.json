@@ -16,7 +16,7 @@
   //    "SmtpPort": 587,
   //    "SmtpSsl": true,
 
-  "SmtpServer": "server.gympos.sk",
+  "SmtpServer": "server.gympos.local",
   "SmtpPort"  : 25,
   "SmtpSsl"   :	false, 
 

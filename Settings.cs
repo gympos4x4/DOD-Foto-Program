@@ -20,6 +20,7 @@ namespace PhotoMail
 		public Settings()
 		{
 			InitializeComponent();
+			DatabaseController.InitDatabaseController();
 		}
 
 		public Bitmap GetImage()
