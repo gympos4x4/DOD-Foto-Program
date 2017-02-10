@@ -46,15 +46,14 @@ namespace PhotoMail
 			}
 		}
 
-		private static void SaveBitmap(Bitmap bmp, out string path, out string guid)
+		private static void SaveBitmap(Bitmap bmp, Student std, out string path, out string guid)
 		{
 			if (bmp == null) throw new ArgumentNullException(nameof(bmp));
 
 			string photoName = "", guidStr = "";
 			do
 			{
-				guidStr = Guid.NewGuid().ToString();
-				photoName = "photos/" + guidStr + ".jpeg";
+				photoName = "photos/" + std.Meno + ".jpeg";
 			} while (File.Exists(photoName));
 
 			bmp.Save(photoName, ImageFormat.Jpeg);
@@ -66,12 +65,12 @@ namespace PhotoMail
 			ServicePointManager.ServerCertificateValidationCallback = (s, certificate, chain, sslPolicyErrors) => true;
 		}
 
-		public static void SendEMail(string address, Bitmap image)
+		public static string SendEMail(Student s, Bitmap image)
 		{
-			var reciever = new MailAddress(address);
+			var reciever = new MailAddress(s.EMail);
 
 			string photoPath, guidStr;
-			SaveBitmap(image, out photoPath, out guidStr);
+			SaveBitmap(image, s, out photoPath, out guidStr);
 
 			var mail = new MailMessage(_senderAddress, reciever)
 			{
@@ -107,6 +106,7 @@ namespace PhotoMail
 			var task = _smtpClient.SendMailAsync(mail);
 			task.GetAwaiter().OnCompleted(() => MessageBox.Show(@"Message sent."));
 #endif
+			return guidStr;
 		}
 	}
 }

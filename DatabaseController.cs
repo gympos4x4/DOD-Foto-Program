@@ -10,18 +10,18 @@ namespace PhotoMail
 	{
 		private static StreamWriter sw;
 
-		static DatabaseController()
+		public static void InitDatabaseController()
 		{
 			if (File.Exists(Config.CsvDbPath)) return;
 
 			using (var sw = File.AppendText(Config.CsvDbPath))
-				sw.WriteLine("meno,skola,email");
+				sw.WriteLine("meno,skola,email,fotka");
 		}
 
 		public static void LogStudent(Student s)
 		{
 			using (var sw = File.AppendText(Config.CsvDbPath))
-				sw.WriteLine($"{s.Meno},{s.Skola},{s.EMail}");
+				sw.WriteLine($"{s.Meno},{s.Skola},{s.EMail},{s.Photo}");
 		}
 	}
 }
